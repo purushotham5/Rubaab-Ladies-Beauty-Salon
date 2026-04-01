@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export default function Contact() {
   const contactInfo = [
@@ -25,76 +25,130 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-rose-400 tracking-widest text-sm font-light">
-            GET IN TOUCH
-          </span>
-          <h2
-            className="text-4xl sm:text-5xl font-bold text-gray-900 mt-2 mb-6"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Visit Our Salon
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Located in the heart of Dubai, we're ready to welcome you to a world
-            of luxury and beauty
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 mb-12">
-          <div className="rounded-3xl overflow-hidden shadow-2xl h-[400px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0933456789!2d55.1234567!3d25.0765432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA0JzM1LjYiTiA1NcKwMDcnMjQuNCJF!5e0!3m2!1sen!2sae!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+    <section id="contact" className="bg-[#d4d0c8] px-4 pb-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="win-window">
+          <div className="win-titlebar">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-pink-600 border border-pink-900 text-[8px] flex items-center justify-center text-white">📧</div>
+              <span>Contact Us - Get In Touch</span>
+            </div>
+            <div className="flex gap-1">
+              <span className="win-titlebar-btn">_</span>
+              <span className="win-titlebar-btn">□</span>
+              <span className="win-titlebar-btn text-red-700">✕</span>
+            </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl border border-rose-100 hover:shadow-lg hover:scale-105 transition-all group"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-rose-400 to-pink-400 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <info.icon className="text-white" size={24} />
+          <div className="p-3">
+            <div className="flex flex-col md:flex-row gap-3">
+              {/* Left: contact info boxes */}
+              <div className="flex-1 space-y-2">
+                <div
+                  style={{
+                    background: 'linear-gradient(to right, #000080, #1084d0)',
+                    color: '#ffff00',
+                    fontSize: 11,
+                    padding: '3px 8px',
+                    fontWeight: 'bold',
+                    fontFamily: '"Comic Sans MS", sans-serif',
+                    marginBottom: 4,
+                  }}
+                >
+                  📍 Salon Information
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{info.title}</h3>
-                {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-gray-600 text-sm font-light">
-                    {detail}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="bg-gradient-to-r from-rose-400 to-pink-400 rounded-3xl p-8 md:p-12 text-white text-center">
-          <h3
-            className="text-3xl font-bold mb-4"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Quick Booking via WhatsApp
-          </h3>
-          <p className="text-rose-50 mb-6 font-light">
-            Get instant confirmation and personalized assistance
-          </p>
-          <a
-            href="https://wa.me/971501234567"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-white text-rose-500 px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all font-medium"
-          >
-            <MessageCircle size={20} />
-            <span>Book via WhatsApp</span>
-          </a>
+                {contactInfo.map((info, i) => (
+                  <div key={i} className="win-raised p-2 bg-[#d4d0c8]">
+                    <div className="flex items-start gap-2">
+                      <div
+                        className="win-sunken flex items-center justify-center"
+                        style={{ width: 32, height: 32, background: '#ffffff', flexShrink: 0 }}
+                      >
+                        <info.icon size={16} className="text-[#000080]" />
+                      </div>
+                      <div className="flex-1">
+                        <div
+                          style={{
+                            fontSize: 11,
+                            fontFamily: 'Tahoma, Arial, sans-serif',
+                            fontWeight: 'bold',
+                            color: '#000080',
+                            marginBottom: 2,
+                          }}
+                        >
+                          {info.title}
+                        </div>
+                        {info.details.map((d, idx) => (
+                          <div
+                            key={idx}
+                            style={{ fontSize: 10, fontFamily: 'Tahoma, Arial, sans-serif', color: '#333' }}
+                          >
+                            {d}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {/* WhatsApp CTA */}
+                <div className="win-window">
+                  <div
+                    className="win-titlebar"
+                    style={{ background: 'linear-gradient(to right, #25D366, #128C7E)' }}
+                  >
+                    <span>💬 WhatsApp Quick Booking</span>
+                  </div>
+                  <div className="p-2 bg-[#d4d0c8]">
+                    <p style={{ fontSize: 10, fontFamily: 'Tahoma, Arial, sans-serif', marginBottom: 6, color: '#333' }}>
+                      Get instant confirmation and personalized assistance via WhatsApp!
+                    </p>
+                    <a
+                      href="https://wa.me/971501234567"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="win-btn win-btn-primary block text-center"
+                      style={{ background: '#25D366', borderColor: '#128C7E', width: '100%' }}
+                    >
+                      💬 Chat with Us on WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: map */}
+              <div className="flex-1">
+                <div
+                  style={{
+                    background: 'linear-gradient(to right, #000080, #1084d0)',
+                    color: '#ffff00',
+                    fontSize: 11,
+                    padding: '3px 8px',
+                    fontWeight: 'bold',
+                    fontFamily: '"Comic Sans MS", sans-serif',
+                    marginBottom: 4,
+                  }}
+                >
+                  🗺 Location Map
+                </div>
+                <div className="win-sunken p-1 bg-white">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0933456789!2d55.1234567!3d25.0765432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA0JzM1LjYiTiA1NcKwMDcnMjQuNCJF!5e0!3m2!1sen!2sae!4v1234567890"
+                    width="100%"
+                    height="400"
+                    style={{ border: 0, display: 'block' }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <div className="win-statusbar mt-1">
+                  <div className="win-statusbar-panel text-[10px]">📍 Dubai Marina, UAE</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

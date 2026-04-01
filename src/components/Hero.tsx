@@ -1,87 +1,130 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
-
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            'url(https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
-      </div>
+    <section id="home" className="pt-[104px] md:pt-[96px] bg-[#d4d0c8] px-4 pb-4">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="relative h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <div className="flex items-center space-x-2 mb-6 animate-fade-in">
-              <Sparkles className="text-rose-300" size={24} />
-              <span className="text-rose-200 tracking-widest text-sm font-light">
-                LUXURY BEAUTY EXPERIENCE IN DUBAI
-              </span>
+        {/* Main hero window */}
+        <div className="win-window">
+          <div className="win-titlebar">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-yellow-400 border border-yellow-700 text-[8px] flex items-center justify-center font-bold text-yellow-900">✦</div>
+              <span>Rubaab Ladies Beauty Salon - Welcome</span>
+            </div>
+            <div className="flex gap-1">
+              <span className="win-titlebar-btn">_</span>
+              <span className="win-titlebar-btn">□</span>
+              <span className="win-titlebar-btn text-red-700">✕</span>
+            </div>
+          </div>
+
+          <div className="p-0">
+            {/* Hero content */}
+            <div className="flex flex-col md:flex-row">
+              {/* Left: image */}
+              <div className="relative">
+                <img
+                  src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Rubaab Beauty Salon"
+                  className="w-full md:w-[380px] h-[220px] object-cover"
+                  style={{
+                    borderRight: '2px solid #808080',
+                    borderBottom: '2px solid #808080',
+                  }}
+                />
+                {/* GIF-style badge */}
+                <div
+                  className="absolute bottom-2 left-2 win-badge text-[10px] font-bold"
+                  style={{ animation: 'none' }}
+                >
+                  ★ NEW! Home Services Available ★
+                </div>
+              </div>
+
+              {/* Right: text */}
+              <div className="flex-1 p-4 bg-white">
+                {/* Animated blink title */}
+                <div className="text-[10px] text-[#ff0000] font-bold mb-1 win-blink">
+                  *** SPECIAL OFFER - 20% OFF ALL TREATMENTS THIS WEEK! ***
+                </div>
+
+                <h1
+                  style={{
+                    fontFamily: '"Comic Sans MS", "Trebuchet MS", sans-serif',
+                    fontSize: 28,
+                    color: '#000080',
+                    marginBottom: 8,
+                    textShadow: '2px 2px #d4d0c8',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Where Beauty
+                  <br />
+                  Meets Perfection!
+                </h1>
+
+                <div
+                  style={{
+                    background: 'linear-gradient(to right, #000080, #1084d0)',
+                    color: 'white',
+                    padding: '4px 8px',
+                    fontSize: 11,
+                    marginBottom: 8,
+                    fontFamily: 'Tahoma, Arial, sans-serif',
+                  }}
+                >
+                  LUXURY BEAUTY EXPERIENCE IN DUBAI, UAE
+                </div>
+
+                <p style={{ fontSize: 11, fontFamily: 'Tahoma, Arial, sans-serif', marginBottom: 12, color: '#000000', lineHeight: '1.5' }}>
+                  Experience world-class beauty treatments in Dubai&apos;s most elegant salon.
+                  Personalized care, expert artistry, and luxury redefined.
+                  <br /><br />
+                  &nbsp;&nbsp;✔ Hair Coloring &amp; Keratin<br />
+                  &nbsp;&nbsp;✔ Luxury Facials<br />
+                  &nbsp;&nbsp;✔ Nail Art &amp; Manicure<br />
+                  &nbsp;&nbsp;✔ Bridal Makeup<br />
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  <a href="#booking" className="win-btn win-btn-primary">
+                    📅 Book Appointment
+                  </a>
+                  <a href="#services" className="win-btn">
+                    ➜ View Services
+                  </a>
+                  <a href="https://wa.me/971501234567" className="win-btn" style={{ color: '#006400', fontWeight: 'bold' }}>
+                    💬 WhatsApp Us
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up"
-              style={{ fontFamily: 'Playfair Display, serif', animationDelay: '0.2s' }}
-            >
-              Where Beauty
-              <br />
-              Meets Perfection
-            </h1>
-
-            <p className="text-lg sm:text-xl text-gray-200 mb-8 font-light max-w-2xl animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-              Experience world-class beauty treatments in Dubai's most elegant
-              salon. Personalized care, expert artistry, and luxury redefined.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-              <a
-                href="#booking"
-                className="group bg-gradient-to-r from-rose-400 to-pink-400 text-white px-8 py-4 rounded-full text-center font-light tracking-wider hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center space-x-2"
-              >
-                <span>Book Appointment</span>
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-              </a>
-              <a
-                href="#services"
-                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full text-center font-light tracking-wider hover:bg-white/20 transition-all border border-white/30"
-              >
-                Explore Services
-              </a>
-            </div>
-
-            <div className="mt-12 flex items-center space-x-8 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <div className="text-white">
-                <div className="text-3xl font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  10+
-                </div>
-                <div className="text-sm text-gray-300 font-light">Years Experience</div>
+            {/* Stats footer bar */}
+            <div className="win-statusbar">
+              <div className="win-statusbar-panel">
+                ⏱ 10+ Years Experience
               </div>
-              <div className="h-12 w-px bg-white/30"></div>
-              <div className="text-white">
-                <div className="text-3xl font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  15K+
-                </div>
-                <div className="text-sm text-gray-300 font-light">Happy Clients</div>
+              <div className="win-statusbar-panel">
+                👥 15,000+ Happy Clients
               </div>
-              <div className="h-12 w-px bg-white/30"></div>
-              <div className="text-white">
-                <div className="text-3xl font-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  4.8★
-                </div>
-                <div className="text-sm text-gray-300 font-light">Rating</div>
+              <div className="win-statusbar-panel">
+                ⭐ Rating: 4.8 / 5.0
+              </div>
+              <div className="win-statusbar-panel" style={{ flex: 'none', minWidth: 120 }}>
+                📍 Dubai Marina, UAE
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-white/50 rounded-full"></div>
+        {/* IE-style loading bar */}
+        <div className="mt-2">
+          <div className="win-progress-track">
+            <div className="win-progress-fill"></div>
+          </div>
+          <div className="text-[10px] text-[#000080] mt-1 font-bold">
+            Opening page Rubaab Ladies Beauty Salon... Done
+          </div>
         </div>
       </div>
     </section>
