@@ -30,15 +30,15 @@ export default function Gallery() {
       category: 'Makeup',
     },
     {
-      url: 'https://images.pexels.com/photos/8837687/pexels-photo-8837687.jpeg?auto=compress&cs=tinysrgb&w=600',
+      url: 'https://imgs.search.brave.com/LLCpktPo_TWP2iS9K7l0YK68EWyoz6droww4DOROOzc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNDk3/Nzg5ODgzL3Bob3Rv/L3dvbWFuLXRyb3Bp/Y2FsLW1hc3NhZ2Ut/ZmFjaWFsLWJlYXV0/eS10cmVhdG1lbnQu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PVpuc3RCMENUbjBB/SThpc2dPUVZ4NlhX/VGFXTWQxM01NUGEt/WFJJR2xIRXc9',
       category: 'Treatment',
     },
     {
-      url: 'https://images.pexels.com/photos/8837688/pexels-photo-8837688.jpeg?auto=compress&cs=tinysrgb&w=600',
+      url: 'https://imgs.search.brave.com/5Mrf4gJWD8BuIdVEb0nXBpWzQ-DI5Gxjh3RVUlKldJY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5ob2NoemVpdC5j/bGljay9pbWFnZS91/cGxvYWQvd184ODAs/Y19maWxsLGRwcl9h/dXRvLGZfYXV0by92/MTU4ODA1ODYxOC9o/b2NoemVpdGNsaWNr/MDEvV2ludGVyLVdl/ZGRpbmdfQmlhbmNh/LU1hcmllLUZvdG9n/cmFmaWUtMTgwX2xk/MnR5bi5qcGc',
       category: 'Bridal',
     },
     {
-      url: 'https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=600',
+      url: 'https://imgs.search.brave.com/dVkb-tYXsu7bGoJ-ftPFnXExzR5OCc7tmoOAW6y6Xdg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jdXR0/aW5nZWRnZWxhZGll/cy5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjUvMDUvSGFp/ci1Db2xvci1TYWxv/bi1EdWJhaS0wMy53/ZWJw',
       category: 'Color',
     },
   ];

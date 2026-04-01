@@ -6,25 +6,26 @@ export default function Team() {
       name: 'Aisha Rahman',
       role: 'Master Hair Stylist',
       specialty: 'Coloring & Keratin Expert',
-      image: 'https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIwc0leWLUwP6n_LFQkTAxyKbdr7GDKEGzTQ&s',
     },
     {
       name: 'Fatima Al-Rashid',
       role: 'Lead Esthetician',
       specialty: 'Facial & Skin Care Specialist',
-      image: 'https://images.pexels.com/photos/8837687/pexels-photo-8837687.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://uaenep.ae/storage/post/CgVUK8QAuJCICEx7Ana56kZRBFcsTxLZ1ca9iXKV.jpg',
     },
     {
       name: 'Layla Hassan',
       role: 'Nail Artist',
       specialty: 'Nail Art & Design Expert',
-      image: 'https://images.pexels.com/photos/8837688/pexels-photo-8837688.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://pbs.twimg.com/profile_images/1309119833615855617/dXUrHElJ.jpg',
     },
     {
       name: 'Mariam Khalid',
       role: 'Bridal Makeup Artist',
       specialty: 'Special Occasion Makeup',
-      image: 'https://images.pexels.com/photos/8837686/pexels-photo-8837686.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://cdn.prod.website-files.com/6479a8915f603149795e7fd1/665ae87c0abe6dfac4f51e59_Leila_Hassan_PP3.jpg'
+      
     },
   ];
 
