@@ -1,8 +1,8 @@
-import { Instagram } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const galleryImages = [
     {
@@ -44,85 +44,163 @@ export default function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-rose-400 tracking-widest text-sm font-light">
-            PORTFOLIO
-          </span>
-          <h2
-            className="text-4xl sm:text-5xl font-bold text-gray-900 mt-2 mb-6"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Our Transformations
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-            Witness the artistry and precision that goes into every treatment
-          </p>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-rose-400 hover:text-rose-500 transition-colors"
-          >
-            <Instagram size={20} />
-            <span>Follow @rubaabsalon</span>
-          </a>
-        </div>
+    <section id="gallery" className="bg-[#d4d0c8] px-4 pb-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="win-window">
+          <div className="win-titlebar">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-teal-600 border border-teal-900 text-[8px] flex items-center justify-center text-white">🖼</div>
+              <span>Photo Gallery - Our Transformations (9 items)</span>
+            </div>
+            <div className="flex gap-1">
+              <span className="win-titlebar-btn">_</span>
+              <span className="win-titlebar-btn">□</span>
+              <span className="win-titlebar-btn text-red-700">✕</span>
+            </div>
+          </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
+          {/* Toolbar */}
+          <div className="win-menubar flex items-center gap-1 px-2 py-1 border-b border-[#808080]">
+            <span className="text-[10px] text-gray-700 mr-1">View:</span>
+            <button className="win-btn" style={{ height: 18, fontSize: 9, padding: '0 6px', minWidth: 'auto' }}>
+              Thumbnails
+            </button>
+            <button className="win-btn" style={{ height: 18, fontSize: 9, padding: '0 6px', minWidth: 'auto' }}>
+              Details
+            </button>
             <div
-              key={index}
-              className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
-              onClick={() => setSelectedImage(image.url)}
+              className="win-separator"
+              style={{ width: 1, height: 14, borderLeft: '1px solid #808080', borderRight: '1px solid #fff', margin: '0 4px' }}
+            />
+            <span className="text-[10px] text-gray-700">Filter:</span>
+            {['All', 'Hair', 'Facial', 'Nails', 'Bridal', 'Makeup'].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat === 'All' ? null : cat)}
+                className="win-btn"
+                style={{
+                  height: 18,
+                  fontSize: 9,
+                  padding: '0 6px',
+                  minWidth: 'auto',
+                  background: (selectedCategory === cat || (cat === 'All' && !selectedCategory)) ? '#000080' : undefined,
+                  color: (selectedCategory === cat || (cat === 'All' && !selectedCategory)) ? '#fff' : undefined,
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          <div className="p-2">
+            {/* Gallery grid */}
+            <div
+              className="bg-white p-2 win-sunken"
+              style={{ minHeight: 200 }}
             >
-              <img
-                src={image.url}
-                alt={image.category}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">
-                    {image.category}
-                  </span>
-                </div>
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                {galleryImages
+                  .filter((img) => !selectedCategory || img.category === selectedCategory)
+                  .map((image, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center gap-1 cursor-pointer group"
+                    onClick={() => setSelectedImage(image.url)}
+                  >
+                    <div className="win-gallery-img p-0.5">
+                      <img
+                        src={image.url}
+                        alt={image.category}
+                        style={{ width: 80, height: 70, objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                    <div
+                      className="text-center group-hover:win-highlight px-1"
+                      style={{ fontSize: 9, fontFamily: 'Tahoma, Arial, sans-serif', maxWidth: 84, overflow: 'hidden', whiteSpace: 'nowrap' }}
+                    >
+                      {image.category}_{String(index + 1).padStart(3, '0')}.jpg
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="text-center mt-12">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-rose-400 to-pink-400 text-white px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all"
-          >
-            <Instagram size={20} />
-            <span>View More on Instagram</span>
-          </a>
+            {/* Instagram CTA */}
+            <div className="mt-2 win-raised p-2 bg-[#d4d0c8] flex items-center gap-2 justify-between">
+              <div style={{ fontSize: 10, fontFamily: 'Tahoma, Arial, sans-serif' }}>
+                📷 View more photos on our <strong>Instagram</strong> page: <span className="text-[#000080] underline cursor-pointer">@rubaabsalon</span>
+              </div>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="win-btn win-btn-primary"
+                style={{ fontSize: 10, height: 20, padding: '0 10px', minWidth: 'auto' }}
+              >
+                📷 Instagram
+              </a>
+            </div>
+          </div>
+
+          <div className="win-statusbar">
+            <div className="win-statusbar-panel text-[10px]">
+              {galleryImages.filter(img => !selectedCategory || img.category === selectedCategory).length} object(s)
+            </div>
+            <div className="win-statusbar-panel text-[10px]">Click image to preview</div>
+          </div>
         </div>
       </div>
 
+      {/* Lightbox as Win2000 dialog */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: 'rgba(0,0,0,0.6)' }}
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-4xl w-full">
-            <img
-              src={selectedImage}
-              alt="Gallery preview"
-              className="w-full h-auto rounded-2xl"
-            />
-            <button
-              className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-              onClick={() => setSelectedImage(null)}
-            >
-              ✕
-            </button>
+          <div
+            className="win-window"
+            style={{ maxWidth: 640, width: '90vw' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="win-titlebar">
+              <div className="flex items-center gap-2">
+                <span>Photo Preview - Windows Picture Viewer</span>
+              </div>
+              <div className="flex gap-1">
+                <span className="win-titlebar-btn">_</span>
+                <span className="win-titlebar-btn">□</span>
+                <span
+                  className="win-titlebar-btn text-red-700 cursor-pointer"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  ✕
+                </span>
+              </div>
+            </div>
+            <div className="p-2 bg-[#d4d0c8]">
+              <div className="win-sunken mb-2">
+                <img
+                  src={selectedImage}
+                  alt="Preview"
+                  style={{ maxWidth: '100%', maxHeight: '60vh', display: 'block', objectFit: 'contain' }}
+                />
+              </div>
+              <div className="flex justify-end gap-2">
+                <button className="win-btn">⬅ Previous</button>
+                <button className="win-btn">Next ➜</button>
+                <button className="win-btn">🖨 Print</button>
+                <button
+                  className="win-btn"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            <div className="win-statusbar">
+              <div className="win-statusbar-panel text-[10px]">Ready</div>
+            </div>
           </div>
         </div>
       )}

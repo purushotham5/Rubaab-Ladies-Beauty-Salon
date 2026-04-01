@@ -1,17 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Instagram, Facebook } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -22,68 +13,86 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-lg shadow-lg py-3'
-          : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <div className="flex-shrink-0">
-            <h1
-              className={`font-serif text-2xl sm:text-3xl font-bold tracking-wide transition-colors ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
-              Rubaab
-            </h1>
-            <p
-              className={`text-xs tracking-widest transition-colors ${
-                isScrolled ? 'text-rose-400' : 'text-rose-200'
-              }`}
-            >
-              LADIES BEAUTY SALON
-            </p>
-          </div>
+    <nav className="fixed w-full z-50 top-0">
+      {/* Marquee ticker */}
+      <div className="win-marquee">
+        <span>
+          &nbsp;&nbsp;&nbsp;★ Welcome to Rubaab Ladies Beauty Salon - Dubai&apos;s Premier Beauty Destination ★ Now Offering Home Services ★ Book Now: +971 50 123 4567 ★ Special Offers Available! ★ Bridal Packages ★ Luxury Facials ★ Nail Art ★ Keratin Treatment ★&nbsp;&nbsp;&nbsp;
+        </span>
+      </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-light tracking-wider hover:text-rose-400 transition-colors ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#booking"
-              className="bg-gradient-to-r from-rose-400 to-pink-400 text-white px-6 py-2 rounded-full text-sm font-light tracking-wider hover:shadow-lg hover:scale-105 transition-all"
-            >
-              Book Now
-            </a>
+      {/* Title bar style nav */}
+      <div className="win-titlebar">
+        <div className="flex items-center gap-2">
+          {/* Window icon */}
+          <div className="w-5 h-5 bg-yellow-400 border border-yellow-600 flex items-center justify-center text-[9px] font-bold text-yellow-900">
+            R
           </div>
-
-          <button
-            className={`md:hidden ${isScrolled ? 'text-gray-900' : 'text-white'}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <span className="text-white font-bold text-xs">Rubaab Ladies Beauty Salon - Microsoft Internet Explorer</span>
         </div>
+        <div className="flex items-center gap-1">
+          <span className="win-titlebar-btn">_</span>
+          <span className="win-titlebar-btn">□</span>
+          <span className="win-titlebar-btn text-red-700 font-bold">✕</span>
+        </div>
+      </div>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
+      {/* Menu bar */}
+      <div className="win-menubar flex items-center px-1">
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="win-menuitem text-black no-underline"
+          >
+            {link.name}
+          </a>
+        ))}
+        <div className="win-separator" style={{ width: 1, height: 16, margin: '0 4px', borderLeft: '1px solid #808080', borderRight: '1px solid #fff' }} />
+        <a
+          href="#booking"
+          className="win-menuitem text-black no-underline font-bold"
+        >
+          Book Appointment
+        </a>
+        <div className="ml-auto flex items-center gap-1 px-2 text-[10px] text-gray-700">
+          <Phone size={10} />
+          <span>+971 50 123 4567</span>
+        </div>
+      </div>
+
+      {/* Toolbar (address bar style) */}
+      <div className="bg-[#d4d0c8] border-b border-[#808080] px-2 py-1 flex items-center gap-2 text-[10px]">
+        <span className="text-gray-600">Address:</span>
+        <div className="win-input flex-1 max-w-xs" style={{ height: 20, display: 'flex', alignItems: 'center', fontSize: 10 }}>
+          https://www.rubaabsalon.ae/home
+        </div>
+        <button className="win-btn" style={{ height: 20, minWidth: 40, fontSize: 10, padding: '0 8px' }}>Go</button>
+        <div className="ml-auto text-[10px] text-gray-500">
+          ⓘ Internet zone
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div className="md:hidden flex justify-end bg-[#d4d0c8] border-b border-[#808080] px-2 py-1">
+        <button
+          className="win-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={12} /> : <Menu size={12} />}
+          <span>Menu</span>
+        </button>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="win-window md:hidden">
+          <div className="win-titlebar text-xs">Navigation</div>
+          <div className="p-2 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block py-3 text-gray-700 hover:text-rose-400 transition-colors"
+                className="win-menuitem block text-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
@@ -91,14 +100,14 @@ export default function Navbar() {
             ))}
             <a
               href="#booking"
-              className="block mt-4 bg-gradient-to-r from-rose-400 to-pink-400 text-white px-6 py-3 rounded-full text-center hover:shadow-lg transition-all"
+              className="win-btn win-btn-primary mt-2 w-full"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Book Now
+              Book Appointment
             </a>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 }

@@ -25,75 +25,111 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-rose-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="mb-6">
-              <span className="text-rose-400 tracking-widest text-sm font-light">
-                OUR STORY
-              </span>
-              <h2
-                className="text-4xl sm:text-5xl font-bold text-gray-900 mt-2 mb-6"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
-                A Legacy of
-                <br />
-                Beauty & Excellence
-              </h2>
+    <section id="about" className="bg-[#d4d0c8] px-4 pb-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="win-window">
+          <div className="win-titlebar">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-blue-600 border border-blue-900 text-[8px] flex items-center justify-center text-white font-bold">i</div>
+              <span>About Us - Rubaab Ladies Beauty Salon</span>
             </div>
-
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Welcome to Rubaab Ladies Beauty Salon, Dubai's premier destination
-              for luxury beauty experiences. Founded by passionate women
-              entrepreneurs, we've been transforming beauty standards for over a
-              decade.
-            </p>
-
-            <p className="text-gray-600 leading-relaxed mb-8">
-              Our salon combines traditional elegance with modern innovation,
-              offering personalized treatments that celebrate your unique beauty.
-              Every service is crafted with precision, care, and an unwavering
-              commitment to excellence.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-rose-100 hover:shadow-lg hover:scale-105 transition-all group"
-                >
-                  <feature.icon className="text-rose-400 mb-3 group-hover:scale-110 transition-transform" size={28} />
-                  <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-600 font-light">{feature.description}</p>
-                </div>
-              ))}
+            <div className="flex gap-1">
+              <span className="win-titlebar-btn">_</span>
+              <span className="win-titlebar-btn">□</span>
+              <span className="win-titlebar-btn text-red-700">✕</span>
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.pexels.com/photos/3764537/pexels-photo-3764537.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Luxury salon interior"
-                className="w-full h-[600px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <div className="p-3">
+            {/* Tab strip */}
+            <div className="flex gap-0 mb-0">
+              <div className="win-tab active text-[11px]">Our Story</div>
+              <div className="win-tab text-[11px] text-gray-500">Awards</div>
+              <div className="win-tab text-[11px] text-gray-500">Location</div>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl">
-              <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-400 rounded-full flex items-center justify-center">
-                  <Award className="text-white" size={32} />
-                </div>
-                <div>
-                  <div
-                    className="text-2xl font-bold text-gray-900"
-                    style={{ fontFamily: 'Playfair Display, serif' }}
-                  >
-                    Award Winning
+            <div
+              className="bg-white p-4"
+              style={{
+                borderTop: '1px solid #808080',
+                borderLeft: '2px solid #ffffff',
+                borderRight: '2px solid #808080',
+                borderBottom: '2px solid #808080',
+              }}
+            >
+              <div className="flex flex-col md:flex-row gap-4">
+                {/* Image */}
+                <div className="md:w-[240px] flex-shrink-0">
+                  <div className="win-sunken p-1">
+                    <img
+                      src="https://images.pexels.com/photos/3764537/pexels-photo-3764537.jpeg?auto=compress&cs=tinysrgb&w=600"
+                      alt="Luxury salon interior"
+                      style={{ width: '100%', height: 200, objectFit: 'cover', display: 'block' }}
+                    />
                   </div>
-                  <div className="text-sm text-gray-600">Excellence in Beauty</div>
+                  <div className="win-statusbar mt-1 text-[10px]">
+                    <div className="win-statusbar-panel">🏆 Award Winning Salon</div>
+                  </div>
+                </div>
+
+                {/* Text */}
+                <div className="flex-1">
+                  <h2
+                    style={{
+                      fontFamily: '"Comic Sans MS", "Trebuchet MS", sans-serif',
+                      fontSize: 20,
+                      color: '#000080',
+                      fontWeight: 'bold',
+                      marginBottom: 4,
+                    }}
+                  >
+                    A Legacy of Beauty &amp; Excellence
+                  </h2>
+                  <div
+                    style={{
+                      background: 'linear-gradient(to right, #000080, #1084d0)',
+                      color: '#ffff00',
+                      fontSize: 10,
+                      padding: '2px 6px',
+                      marginBottom: 8,
+                      fontFamily: 'Tahoma, Arial, sans-serif',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    OUR STORY — FOUNDED 2014
+                  </div>
+
+                  <p style={{ fontSize: 11, fontFamily: 'Tahoma, Arial, sans-serif', marginBottom: 8, lineHeight: '1.6' }}>
+                    Welcome to <strong>Rubaab Ladies Beauty Salon</strong>, Dubai&apos;s premier destination for luxury beauty experiences.
+                    Founded by passionate women entrepreneurs, we&apos;ve been transforming beauty standards for over a decade.
+                  </p>
+                  <p style={{ fontSize: 11, fontFamily: 'Tahoma, Arial, sans-serif', marginBottom: 12, lineHeight: '1.6' }}>
+                    Our salon combines traditional elegance with modern innovation, offering personalized treatments that celebrate your unique beauty.
+                    Every service is crafted with precision, care, and an unwavering commitment to excellence.
+                  </p>
+
+                  {/* Feature table */}
+                  <table className="win-table">
+                    <thead>
+                      <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {features.map((feature, i) => (
+                        <tr key={i}>
+                          <td>
+                            <div className="flex items-center gap-2">
+                              <feature.icon size={12} className="text-[#000080]" />
+                              <strong>{feature.title}</strong>
+                            </div>
+                          </td>
+                          <td style={{ color: '#333' }}>{feature.description}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-import { Star, Quote } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Reviews() {
@@ -9,111 +8,152 @@ export default function Reviews() {
       name: 'Sarah Al-Mansoori',
       location: 'Dubai Marina',
       rating: 5,
-      text: 'Absolutely stunning experience! The attention to detail and luxury ambiance made me feel like royalty. My keratin treatment was flawless.',
+      text: "Absolutely stunning experience! The attention to detail and luxury ambiance made me feel like royalty. My keratin treatment was flawless.",
       service: 'Keratin Treatment',
+      date: '03/15/2024',
     },
     {
       name: 'Noor Abdullah',
       location: 'Downtown Dubai',
       rating: 5,
-      text: 'Best facial I\'ve ever had! The staff is incredibly professional and the results were immediate. My skin has never looked better.',
+      text: "Best facial I've ever had! The staff is incredibly professional and the results were immediate. My skin has never looked better.",
       service: 'Luxury Facial',
+      date: '03/10/2024',
     },
     {
       name: 'Hala Khalifa',
       location: 'Jumeirah',
       rating: 5,
-      text: 'The nail art is absolutely exquisite! They truly understand luxury service and attention to detail. I wouldn\'t go anywhere else.',
+      text: "The nail art is absolutely exquisite! They truly understand luxury service and attention to detail. I wouldn't go anywhere else.",
       service: 'Nail Art',
+      date: '02/28/2024',
     },
     {
       name: 'Amira Hassan',
       location: 'Palm Jumeirah',
       rating: 5,
-      text: 'My bridal makeup was perfection! They made me feel so special and beautiful on my big day. Highly recommend for special occasions.',
+      text: "My bridal makeup was perfection! They made me feel so special and beautiful on my big day. Highly recommend for special occasions.",
       service: 'Bridal Makeup',
+      date: '02/14/2024',
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6bTAtMThjMC0yLjIxIDEuNzktNCA0LTRzNCAxLjc5IDQgNC0xLjc5IDQtNCA0LTQtMS43OS00LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <span className="text-rose-400 tracking-widest text-sm font-light">
-            CLIENT TESTIMONIALS
-          </span>
-          <h2
-            className="text-4xl sm:text-5xl font-bold text-gray-900 mt-2 mb-6"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            What Our Clients Say
-          </h2>
-
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="text-yellow-400 fill-yellow-400" size={24} />
-              ))}
+    <section className="bg-[#d4d0c8] px-4 pb-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="win-window">
+          <div className="win-titlebar">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-yellow-500 border border-yellow-700 text-[8px] flex items-center justify-center">★</div>
+              <span>Client Testimonials - Guestbook</span>
             </div>
-            <span className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Playfair Display, serif' }}>
-              4.8
-            </span>
+            <div className="flex gap-1">
+              <span className="win-titlebar-btn">_</span>
+              <span className="win-titlebar-btn">□</span>
+              <span className="win-titlebar-btn text-red-700">✕</span>
+            </div>
           </div>
-          <p className="text-gray-600">Based on 1,500+ reviews</p>
-        </div>
 
-        <div className="relative max-w-5xl mx-auto">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {reviews.map((review, index) => (
-                <div key={index} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white/60 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white shadow-xl relative">
-                    <Quote className="absolute top-8 right-8 text-rose-200" size={64} />
-
-                    <div className="flex mb-4">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="text-yellow-400 fill-yellow-400" size={20} />
-                      ))}
-                    </div>
-
-                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-6 relative z-10 italic">
-                      "{review.text}"
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-bold text-gray-900" style={{ fontFamily: 'Playfair Display, serif' }}>
-                          {review.name}
-                        </h4>
-                        <p className="text-sm text-gray-600">{review.location}</p>
-                      </div>
-                      <div className="bg-rose-100 text-rose-600 px-4 py-2 rounded-full text-sm">
-                        {review.service}
-                      </div>
-                    </div>
-                  </div>
+          <div className="p-3">
+            {/* Rating display */}
+            <div className="win-raised p-2 mb-3 bg-[#d4d0c8] flex flex-wrap items-center gap-4">
+              <div>
+                <div
+                  style={{
+                    fontFamily: '"Comic Sans MS", sans-serif',
+                    fontSize: 32,
+                    color: '#000080',
+                    fontWeight: 'bold',
+                    lineHeight: 1,
+                  }}
+                >
+                  4.8
                 </div>
-              ))}
+                <div style={{ fontSize: 9, fontFamily: 'Tahoma, Arial, sans-serif', color: '#333' }}>
+                  out of 5.0
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: 18, letterSpacing: 2, color: '#FFD700', textShadow: '1px 1px #808080' }}>
+                  ★★★★★
+                </div>
+                <div style={{ fontSize: 9, fontFamily: 'Tahoma, Arial, sans-serif', color: '#333' }}>
+                  Based on 1,500+ reviews
+                </div>
+              </div>
+              <div
+                className="win-badge"
+                style={{ fontSize: 11, padding: '4px 10px' }}
+              >
+                GOOGLE REVIEWS
+              </div>
             </div>
-          </div>
 
-          <div className="flex justify-center mt-8 space-x-2">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === activeIndex
-                    ? 'bg-rose-400 w-8'
-                    : 'bg-rose-200 hover:bg-rose-300'
-                }`}
-              />
-            ))}
+            {/* Reviews as guestbook entries */}
+            <table className="win-table mb-3">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Guest Name</th>
+                  <th>Location</th>
+                  <th>Service</th>
+                  <th>Rating</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reviews.map((r, i) => (
+                  <tr
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    style={{ cursor: 'pointer', background: i === activeIndex ? '#000080' : undefined }}
+                  >
+                    <td style={{ color: i === activeIndex ? '#fff' : undefined, fontFamily: 'Courier New', fontSize: 10 }}>{i + 1}</td>
+                    <td style={{ color: i === activeIndex ? '#fff' : '#000080', fontWeight: 'bold', fontSize: 10 }}>{r.name}</td>
+                    <td style={{ color: i === activeIndex ? '#ffff00' : '#333', fontSize: 10 }}>{r.location}</td>
+                    <td style={{ fontSize: 10 }}>
+                      <span className={i === activeIndex ? 'text-yellow-300' : ''} style={{ color: i === activeIndex ? '#ffff00' : undefined }}>
+                        {r.service}
+                      </span>
+                    </td>
+                    <td style={{ fontSize: 12, letterSpacing: 1, color: '#FFD700' }}>
+                      {'★'.repeat(r.rating)}
+                    </td>
+                    <td style={{ color: i === activeIndex ? '#ccc' : '#666', fontSize: 9, fontFamily: 'Courier New' }}>{r.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            {/* Selected review detail */}
+            <div className="win-sunken bg-white p-3">
+              <div className="mb-1 text-[10px] text-gray-500" style={{ fontFamily: 'Tahoma, Arial, sans-serif' }}>
+                Review Detail — {reviews[activeIndex].name} ({reviews[activeIndex].date})
+              </div>
+              <div
+                style={{
+                  fontFamily: '"Comic Sans MS", Tahoma, sans-serif',
+                  fontSize: 12,
+                  color: '#000080',
+                  fontStyle: 'italic',
+                  lineHeight: '1.6',
+                }}
+              >
+                &ldquo;{reviews[activeIndex].text}&rdquo;
+              </div>
+              <div className="mt-2 text-[10px] text-right text-gray-500">
+                — {reviews[activeIndex].name}, {reviews[activeIndex].location}
+              </div>
+            </div>
+
+            <div className="win-statusbar mt-2">
+              <div className="win-statusbar-panel text-[10px]">
+                Showing review {activeIndex + 1} of {reviews.length}
+              </div>
+              <div className="win-statusbar-panel text-[10px]">
+                <span className="text-green-700 font-bold">● Verified Reviews</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
